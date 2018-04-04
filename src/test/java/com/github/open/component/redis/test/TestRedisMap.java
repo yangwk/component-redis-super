@@ -27,7 +27,7 @@ public class TestRedisMap {
 	public void testContainsKey() {
 		RedisMap<String, String> map = redisClient.getRedisMap(name);
 		
-		boolean res = map.containsKey("test");
+		boolean res = map.containsKey("0test");
 		System.out.println(res);
 	}
 	
@@ -35,7 +35,7 @@ public class TestRedisMap {
 	public void testGet() {
 		RedisMap<String, String> map = redisClient.getRedisMap(name);
 		
-		String content = map.get("test");
+		String content = map.get("1test");
 		System.out.println(content);
 	}
 	
@@ -65,7 +65,7 @@ public class TestRedisMap {
 		RedisMap<String, String> map = redisClient.getRedisMap(name);
 		
 		for(int r=0; r<2; r++) {
-			boolean res = map.remove(r+"test", r+"testtest");
+			boolean res = map.remove(r+"test", (r+1)+"test");
 			System.out.println(r + " , "+res);
 		}
 	}
